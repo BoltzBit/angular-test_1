@@ -7,7 +7,8 @@ beforeEach(() => {
 });
 
 describe(UniqueIdService.name, () => {
-    it(`#${UniqueIdService.prototype.generatedUniqueIdWithPrefix.name} should generate id when called with prefix`, () => {
+    it(`#${UniqueIdService.prototype.generatedUniqueIdWithPrefix.name} 
+        should generate id when called with prefix`, () => {
         const id = service.generatedUniqueIdWithPrefix('app');
         expect(id.startsWith('app-')).toBeTrue();
     });
@@ -27,10 +28,16 @@ describe(UniqueIdService.name, () => {
         expect(ids.size).toBe(50);
     });
 
-    it(`#numberOfGeneratedUniqueId should return the number of generatedIds when called`, () => {
+    it(`#numberOfGeneratedUniqueId 
+        should return the number of generatedIds when called`, () => {
         service.generatedUniqueIdWithPrefix('app-');
         service.generatedUniqueIdWithPrefix('app-');
 
         expect(service.numberOfGeneratedUniqueId).toBe(2);
     });
+
+    it(`#${UniqueIdService.prototype.generatedUniqueIdWithPrefix.name}
+        should throw exception when string is empty`, () => {
+            expect(() => service.generatedUniqueIdWithPrefix('')).toThrow();
+        });
 });
