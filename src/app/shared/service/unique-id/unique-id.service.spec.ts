@@ -21,7 +21,7 @@ describe(UniqueIdService.name, () => {
 
         const ids = new Set();
 
-        for(let i = 0; i < 50; i++){
+        for (let i = 0; i < 50; i++) {
             ids.add(service.generatedUniqueIdWithPrefix('app-'));
         }
 
@@ -38,6 +38,12 @@ describe(UniqueIdService.name, () => {
 
     it(`#${UniqueIdService.prototype.generatedUniqueIdWithPrefix.name}
         should throw exception when string is empty`, () => {
-            expect(() => service.generatedUniqueIdWithPrefix('')).toThrow();
+        const emptyValues = [null, undefined, '', '0', '1'];
+
+        emptyValues.forEach(value => {
+            expect(() => service.generatedUniqueIdWithPrefix(value!))
+                .withContext(`Empty value = ${value}`)
+                .toThrow();
         });
+    });
 });
