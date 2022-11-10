@@ -9,8 +9,4 @@ export class AppComponent {
     title = 'angular-test_1';
 
     public likes = 0;
-
-    public like(): void{
-        this.likes++;
-    }
 }
