@@ -1,23 +1,25 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+import { UniqueIdService } from "src/app/shared/service/unique-id/unique-id.service";
+import { LikeWidgetComponent } from "./like-widget.component";
 
-import { LikeWidgetComponent } from './like-widget.component';
+let fixture: ComponentFixture<LikeWidgetComponent>;
 
-describe('LikeWidgetComponent', () => {
-  let component: LikeWidgetComponent;
-  let fixture: ComponentFixture<LikeWidgetComponent>;
-
-  beforeEach(async () => {
+beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LikeWidgetComponent ]
-    })
-    .compileComponents();
-
+        declarations: [LikeWidgetComponent],
+        providers: [UniqueIdService],
+        imports: [FontAwesomeModule]
+    }).compileComponents();
+    
+    //dentro do fixture tem a instância do meu componente
     fixture = TestBed.createComponent(LikeWidgetComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+});
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+describe(LikeWidgetComponent.name, () => {
+    it('Should create component', () => {
+        //instancia do meu componente
+        const instance = fixture.componentInstance;
+        expect(instance).toBeTruthy();
+    });
 });
