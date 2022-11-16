@@ -1,15 +1,12 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
-import { UniqueIdService } from "src/app/shared/service/unique-id/unique-id.service";
+import { LikeWidgetModule } from "../like-widget.module";
 import { LikeWidgetComponent } from "./like-widget.component";
 
 let fixture: ComponentFixture<LikeWidgetComponent>;
 
 beforeEach(async () => {
     await TestBed.configureTestingModule({
-        declarations: [LikeWidgetComponent],
-        providers: [UniqueIdService],
-        imports: [FontAwesomeModule]
+        imports: [LikeWidgetModule]
     }).compileComponents();
     
     //dentro do fixture tem a instância do meu componente
@@ -21,5 +18,11 @@ describe(LikeWidgetComponent.name, () => {
         //instancia do meu componente
         const instance = fixture.componentInstance;
         expect(instance).toBeTruthy();
+    });
+
+    it('Should auto generate ID when id input property is missing', () => {
+        const instance = fixture.componentInstance;
+
+        expect(instance.id).toBeTruthy();
     });
 });
