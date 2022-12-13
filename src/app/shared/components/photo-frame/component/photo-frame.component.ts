@@ -10,4 +10,8 @@ export class PhotoFrameComponent{
     @Input() description: string = '';
     @Input() src: string = '';
     @Input() likes: number = 0;
+
+    public like(): void{
+        this.liked.emit();
+    }
 }
