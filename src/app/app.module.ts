@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { LikeWidgetModule } from './shared/components/like-widget/like-widget.module';
+import { PhotoFrameModule } from './shared/components/photo-frame/photo-frame.module';
 
 @NgModule({
     declarations: [
@@ -10,7 +11,8 @@ import { LikeWidgetModule } from './shared/components/like-widget/like-widget.mo
     ],
     imports: [
         BrowserModule,
-        LikeWidgetModule
+        LikeWidgetModule,
+        PhotoFrameModule
     ],
     providers: [],
     bootstrap: [AppComponent]

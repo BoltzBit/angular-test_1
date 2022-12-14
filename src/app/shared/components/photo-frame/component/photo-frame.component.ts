@@ -6,12 +6,7 @@ import { Component, EventEmitter, Input, Output } from "@angular/core";
     styleUrls: ['./photo-frame.component.scss']
 })
 export class PhotoFrameComponent{
-    @Output() liked: EventEmitter<void> = new EventEmitter<void>();
     @Input() description: string = '';
     @Input() src: string = '';
-    @Input() likes: number = 0;
-
-    public like(): void{
-        this.liked.emit();
-    }
+    public likes: number = 0;
 }
