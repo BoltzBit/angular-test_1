@@ -44,9 +44,9 @@ describe(LikeWidgetComponent.name, () => {
         // instance.like();
 
         //forma enxuta
-        spyOn(instance.likesChange, 'emit');
+        spyOn(instance.liked, 'emit');
         fixture.detectChanges();
         instance.like();
-        expect(instance.likesChange.emit).toHaveBeenCalled();
+        expect(instance.liked.emit).toHaveBeenCalled();
     });
 });
