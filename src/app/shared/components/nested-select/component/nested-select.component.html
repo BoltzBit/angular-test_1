@@ -1,0 +1,13 @@
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle"
+            [ngClass]="{'show' : show }"
+            type="button" data-bs-toggle="dropdown" 
+            [attr.aria-expanded]="show"
+            (click)="showDrop()">
+        Dropdown button
+    </button>
+    <ul class="dropdown-menu"
+        [ngClass]="{'show' : show }">
+        <li class="dropdown-item" *ngFor="let item of mainArray" (click)="findChildren(item.id)">{{item.description}}</li>
+    </ul>
+</div>

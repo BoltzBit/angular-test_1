@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { LikeWidgetModule } from './shared/components/like-widget/like-widget.module';
 import { PhotoFrameModule } from './shared/components/photo-frame/photo-frame.module';
+import { NestedSelectModule } from './shared/components/nested-select/nested-select.module';
 
 @NgModule({
     declarations: [
@@ -12,7 +13,8 @@ import { PhotoFrameModule } from './shared/components/photo-frame/photo-frame.mo
     imports: [
         BrowserModule,
         LikeWidgetModule,
-        PhotoFrameModule
+        PhotoFrameModule,
+        NestedSelectModule
     ],
     providers: [],
     bootstrap: [AppComponent]
