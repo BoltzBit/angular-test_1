@@ -1,13 +1,12 @@
 <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle"
+    <input class="btn btn-secondary dropdown-toggle"
+            placeholder="deu certo"
             [ngClass]="{'show' : show }"
-            type="button" data-bs-toggle="dropdown" 
+            data-bs-toggle="dropdown" 
             [attr.aria-expanded]="show"
             (click)="showDrop()">
-        Dropdown button
-    </button>
     <ul class="dropdown-menu"
         [ngClass]="{'show' : show }">
-        <li class="dropdown-item" *ngFor="let item of mainArray" (click)="findChildren(item.id)">{{item.description}}</li>
+        <li class="dropdown-item" aria-checked="true" *ngFor="let item of mainArray" (click)="findChildren(item.id, item.description)">{{item.description}}</li>
     </ul>
 </div>

@@ -7,7 +7,7 @@ import { Photo } from "../interfaces/photo";
     styleUrls: ['photo-board.component.scss']
 })
 export class PhotoBoardComponent implements OnChanges{
-    @Input() photos!: Photo[];
+    @Input() photos!: Photo[] | null;
     public rows: any[][] = [];
 
     ngOnChanges(changes: SimpleChanges){

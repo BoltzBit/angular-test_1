@@ -20,11 +20,11 @@ export class NestedSelectComponent implements OnInit {
         console.log(this.mainArray)
     }
 
-    public showDrop(): void{
+    public showDrop(): void {
         this.show = !this.show;
     }
 
-    public findChildren(id: number): void{
+    public findChildren(id: number, description: string): void {
         const divEl: HTMLElement = this._elementRef.nativeElement.querySelector('.dropdown-menu');
         const liChild: Array<HTMLElement> = this._elementRef.nativeElement.querySelectorAll('.dropdown-item');
 
@@ -34,15 +34,53 @@ export class NestedSelectComponent implements OnInit {
 
         const filteredArray = fakeTs.filter(item => item.parentId === id);
 
-        filteredArray.forEach(item => {
+        filteredArray.forEach((item, index) => {
             //o primeiro li tem que referenciar o dropdown anterior
+            if (index === 0) {
+                const li: HTMLElement = this._renderer2.createElement('li');
+
+                li.addEventListener('click', () => {
+                    this.returnToMainList();
+                });
+
+                li.innerText = description;
+                this._renderer2.addClass(li, 'dropdown-item');
+
+                divEl.appendChild(li);
+            }
+
             const li: HTMLElement = this._renderer2.createElement('li');
+            
+            this._renderer2.setAttribute(li, 'id', item.id);
 
             li.innerText = item.description;
+
+            this._renderer2.addClass(li, 'dropdown-item');
+
             divEl.appendChild(li);
         });
+    }
 
-        console.log(fakeTs.filter(item => item.parentId === id));
+    private returnToMainList(): void {
+        const divEl: HTMLElement = this._elementRef.nativeElement.querySelector('.dropdown-menu');
+        const liChild: Array<HTMLElement> = this._elementRef.nativeElement.querySelectorAll('.dropdown-item');
+
+        liChild.forEach(item => {
+            item.remove();
+        });
+
+        this.mainArray.forEach((item, index) => {
+            const li: HTMLElement = this._renderer2.createElement('li');
+
+            li.addEventListener('click', () => {
+                this.findChildren(item.id, item.description);
+            })
+
+            li.innerText = item.description;
+            this._renderer2.addClass(li, 'dropdown-item');
+
+            divEl.appendChild(li);
+        });
     }
 
 }
