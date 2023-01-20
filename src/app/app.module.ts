@@ -1,11 +1,9 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http'
+import { RouterOutlet } from '@angular/router';
 import { AppComponent } from './app.component';
-import { LikeWidgetModule } from './shared/components/like-widget/like-widget.module';
-import { PhotoFrameModule } from './shared/components/photo-frame/photo-frame.module';
 import { NestedSelectModule } from './shared/components/nested-select/nested-select.module';
-import { PhotoBoardModule } from './shared/components/photo-board/photo-board.module';
 
 @NgModule({
     declarations: [
@@ -13,11 +11,9 @@ import { PhotoBoardModule } from './shared/components/photo-board/photo-board.mo
     ],
     imports: [
         BrowserModule,
-        LikeWidgetModule,
-        PhotoFrameModule,
         NestedSelectModule,
         HttpClientModule,
-        PhotoBoardModule
+        RouterOutlet
     ],
     providers: [],
     bootstrap: [AppComponent]
