@@ -1,5 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { PhotoBoardModule } from "src/app/shared/components/photo-board/photo-board.module";
 import { PhotoListComponent } from "./component/photo-list.component";
 
@@ -7,7 +8,8 @@ import { PhotoListComponent } from "./component/photo-list.component";
     declarations: [PhotoListComponent],
     imports: [
         CommonModule,
-        PhotoBoardModule
+        PhotoBoardModule,
+        FontAwesomeModule
     ],
     exports: [PhotoListComponent]
 })

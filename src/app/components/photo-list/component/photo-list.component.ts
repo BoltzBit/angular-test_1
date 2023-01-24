@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 import { Observable } from "rxjs";
 import { Photo } from "src/app/shared/components/photo-board/interfaces/photo";
 import { PhotoBoardService } from "src/app/shared/components/photo-board/services/photo-board.service";
@@ -8,12 +9,13 @@ import { PhotoBoardService } from "src/app/shared/components/photo-board/service
     templateUrl: './photo-list.component.html',
     styleUrls: ['photo-list.component.scss']
 })
-export class PhotoListComponent{
-    public photos$!: Observable<Photo[]> | null;
-    
-    constructor(private _photoService: PhotoBoardService){}
+export class PhotoListComponent {
+    public photos$!: Observable<Photo[] | undefined>;
+    public fa = { faCircleNotch };
 
-    ngOnInit(): void{
+    constructor(private _photoService: PhotoBoardService) { }
+
+    ngOnInit(): void {
         this.photos$ = this._photoService.getPhotos();
     }
 }

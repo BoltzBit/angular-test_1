@@ -1,23 +1,8 @@
 import { SimpleChange, SimpleChanges } from "@angular/core";
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { Photo } from "../interfaces/photo";
+import { buildPhotoList } from "src/app/shared/utils/build-photo-list";
 import { PhotoBoardModule } from "../photo-board.module";
 import { PhotoBoardComponent } from "./photo-board.component";
-
-//mock de dados para poder testar
-function buildPhotoList(): Photo[]{
-    const photos: Photo[] = [];
-
-    for(let i = 0; i < 8; i++){
-        photos.push({
-            id: i+1,
-            description: '',
-            url: ''
-        });
-    }
-
-    return photos;
-}
 
 describe(PhotoBoardComponent.name, () => {
     let fixture: ComponentFixture<PhotoBoardComponent>;
